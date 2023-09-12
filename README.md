@@ -13,7 +13,7 @@
 5. Running Jenkins with native SSL/HTTPS using AWS Certificate Manager (ACM)
 6. Creating Route 53 'A' record: Can skip if no hosted zone in Route 53
 
-![Project Logo](Architecture.JPG)
+![Project Logo](Architecture.png)
 
 The above figure summarizes the deployed architecture.
 
