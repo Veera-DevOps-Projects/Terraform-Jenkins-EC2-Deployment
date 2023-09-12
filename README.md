@@ -17,12 +17,12 @@
 
 The above figure summarizes the deployed architecture.
 
-### Part 2: Provisioning Dynamically autoscaling the Jenkins worker pool
+## Part 2: Provisioning Dynamically autoscaling the Jenkins worker pool
 
 Running a cluster of Jenkins workers and adjust the size of the cluster up or down based on resource utilization. We can certainly deploy Jenkins workers as separate EC2 instances (rerunning the previous steps). However, we want the instances to be deployed and replaced automatically for autorecovery. That's why we will rely on a standard AWS feature called Auto Scaling Groups.
 
 ### steps:
-1. Create a launch configuration resource with user dataS
+1. Create a launch configuration resource with user data
 2. Deploying an Auto Scaling Group
 3. Defining Autoscaling policies based on CPU utilization using Cloudwatch metrics alarms
 
