@@ -1,15 +1,11 @@
-output "internet-loadbalancer-dns" {
-  value = aws_lb.internet_load_balancer.dns_name
+output "bastion" {
+  value = aws_instance.bastion.public_ip
 }
 
-output "internal-loadbalancer-dns" {
-  value = aws_lb.internal_load_balancer.dns_name
+output "jenkins-master-elb" {
+  value = aws_elb.jenkins_elb.dns_name
 }
 
-output "internet-instance-ips" {
-  value = data.aws_instances.public_instances.public_ips
-}
-
-output "internal-instance-private-ips" {
-  value = data.aws_instances.private_instances.private_ips
+output "jenkins-dns" {
+  value = "https://${aws_route53_record.jenkins_master.name}"
 }
