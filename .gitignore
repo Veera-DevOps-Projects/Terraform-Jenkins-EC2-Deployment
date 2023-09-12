@@ -35,3 +35,5 @@ override.tf.json
 terraform.rc
 terraform.tfvars
 outputs-vpc.tf
+.terraform.tfstate.lock.info
+.terraform.lock.hcl
