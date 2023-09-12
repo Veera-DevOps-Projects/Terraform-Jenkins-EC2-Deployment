@@ -1,86 +1,97 @@
+// Provided at runtime
+
 variable "region" {
-  default     = "us-east-1"
-  description = "AWS Region"
-}
-
-
-variable "vpc_id" {
-  type        = string
-  description = "VPC ID"
-}
-
-variable "vpc_cidr" {
-  description = "CIDR Block for VPC"
-}
-
-
-variable "image_id" {
-  type        = string
-  description = "AMI ID"
-}
-
-variable "key_pair_name" {
-  #   default     = "myEC2KeyPair"
-  description = "Key pair for connecting to launched EC2 instances"
-  type        = string
-}
-
-variable "instance_type" {
-  description = "EC2 Instance type to launch"
-  type        = string
-}
-
-variable "min_instance_size" {
-  type        = number
-  description = "Minimum number of instances to launch in AutoScaling Group"
-}
-
-variable "max_instance_size" {
-  type        = number
-  description = "Maximum number of instances to launch in AutoScaling Group"
-}
-
-variable "environment" {
-  type    = string
-  default = "Development"
-}
-
-variable "private_subnet_ids" {
-  type        = list(string)
-  description = "Private Subnet IDs"
-}
-
-variable "public_subnet_ids" {
-  type        = list(string)
-  description = "Public Subnet IDs"
-}
-
-variable "private_subnet_cidr" {
-  type        = list(string)
-  description = "CIDR address for private subnets"
-}
-
-variable "public_subnet_cidr" {
-  type        = list(string)
-  description = "CIDR address for public subnets"
-}
-
-variable "win_ec2_image_id" {
   type = string
-  description = "Windows Test EC2 Private IP"
+  description = "AWS region"
 }
 
-variable "win_ec2_instance_type" {
+
+variable "author" {
   type = string
-  description = "Windows Test EC2 Private IP"
+  description = "Created by"
+  default = "Veera"
 }
 
-variable "win_ec2_subnet_id" {
+variable "availability_zones" {
+  type        = list
+  description = "List of Availability Zones"
+}
+
+variable "public_key" {
   type = string
-  description = "Subnet ID for Windows Test EC2"
+  description = "SSH public key path"
 }
 
-variable "zones" {
-  type        = list(string)
-  description = "Availability zones for subnet deployment"
+variable "hosted_zone_id" {
+  type = string
+  description = "Route53 hosted zone id"
+}
+
+variable "domain_name" {
+  type = string
+  description = "Domain name"
+}
+
+variable "ssl_arn" {
+  type = string
+  description = "ACM SSL ARN"
+}
+
+variable "jenkins_username" {
+  type = string
+  description = "Jenkins admin user"
+}
+
+variable "jenkins_password" {
+  type = string
+  description = "Jenkins admin password"
+}
+
+variable "jenkins_credentials_id" {
+  type = string
+  description = "Jenkins workers SSH based credentials id"
+}
+
+// Default values
+
+variable "vpc_name" {
+  type = string
+  description = "VPC name"
+  default     = "jenkins-management"
+}
+
+variable "cidr_block" {
+  type = string
+  description = "VPC CIDR block"
+  default     = "10.0.0.0/16"
+}
+
+variable "public_subnets_count" {
+  type = number
+  description = "Number of public subnets"
+  default = 2
+}
+
+variable "private_subnets_count" {
+  type = number
+  description = "Number of private subnets"
+  default = 2
+}
+
+variable "bastion_instance_type" {
+  type = string
+  description = "Bastion instance type"
+  default = "t2.micro"
+}
+
+variable "jenkins_master_instance_type" {
+  type = string
+  description = "Jenkins master EC2 instance type"
+  default = "t2.medium"
+}
+
+variable "jenkins_worker_instance_type" {
+  type = string
+  description = "Jenkins worker EC2 instance type"
+  default = "t2.micro"
 }
